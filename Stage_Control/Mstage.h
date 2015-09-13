@@ -1,0 +1,37 @@
+#ifndef __MSTAGE_H__
+#define __MSTAGE_H__
+
+#define TRUE    1
+#define FALSE   -1
+
+class Mstage
+{
+   public:
+      void   set_port_speed(int fd, int speed); /*Set Serial Port Speed*/
+      int    set_prot_Parity(int fd, int databits, int stopbits, int parity); /*Set Serial Port Parity*/
+      int    OpenDev(char *Dev); /*Open Sereial Port*/
+      void   stage_calib(int Fd); /*Stage Calibration*/
+      void   stage_pos(int Fd); /*Current Position Coordinate*/
+      void   stage_axisdir(int Fd, int x, int y); /*Set Motor Direction*/
+      void   stage_vel(int Fd, float x, float y); /*Set Motor Velocity*/
+      void   stage_moa(int Fd, float x, float y); /*Move Stage along Both X and Y axis*/
+      void   stage_moax(int Fd, float x); /*Move Stage along X Axis*/
+      void   stage_moay(int Fd, float x); /*Move Stage along Y Axis*/
+      void   probe_connect(int Fd); /*Probe's controller address selection*/
+      void   probe_on(int Fd); /*Probe's motor on*/
+      void   probe_off(int Fd); /*Probe's motor off*/
+      void   probe_ST(int Fd); /*Probe's motor stop*/
+      void   probe_Ki(int Fd, float Ki); /*Set probe PID controller integral term*/
+      void   probe_Kd(int Fd, float Kd); /*Set probe PID controller derivative term*/
+      void   probe_Kp(int Fd, float Kp); /*Set probe PID controller propotional term*/
+      void   probe_DH(int Fd); /*Define home position*/
+      void   probe_GH(int Fd); /*Probe goes back home*/ 
+      void   probe_MA(int Fd, int x); /*Probe moves absolutely*/
+      void   probe_MR(int Fd, int x); /*Probe moves relatively*/
+      void   probe_SA(int Fd, int x); /*Set acceleration of probe, x encoder counts per square second*/
+      void   probe_SV(int Fd, int x); /*Set velocity of probe, x encoder counts per second*/
+      void   probe_TE(int Fd); /*Tell the position error*/
+      void   probe_TP(int Fd); /*Tell the current position*/
+};
+
+#endif 
