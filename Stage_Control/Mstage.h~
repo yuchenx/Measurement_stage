@@ -21,9 +21,9 @@ class Mstage
       void   probe_on(int Fd); /*Probe's motor on*/
       void   probe_off(int Fd); /*Probe's motor off*/
       void   probe_ST(int Fd); /*Probe's motor stop*/
-      void   probe_Ki(int Fd, int Ki); /*Set probe PID controller integral term*/
-      void   probe_Kd(int Fd, int Kd); /*Set probe PID controller derivative term*/
-      void   probe_Kp(int Fd, int Kp); /*Set probe PID controller propotional term*/
+      void   probe_Ki(int Fd, float Ki); /*Set probe PID controller integral term*/
+      void   probe_Kd(int Fd, float Kd); /*Set probe PID controller derivative term*/
+      void   probe_Kp(int Fd, float Kp); /*Set probe PID controller propotional term*/
       void   probe_DH(int Fd); /*Define home position*/
       void   probe_GH(int Fd); /*Probe goes back home*/ 
       void   probe_MA(int Fd, int x); /*Probe moves absolutely*/

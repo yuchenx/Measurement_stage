@@ -39,18 +39,8 @@ int main(int argc, char **argv)
       exit(0);
    }
    cerr << "Parity set" << endl;
-   //M.probe_connect(fd);
-   //sleep(2);
-   //M.probe_on(fd);
-   //sleep(2);
-   //M.probe_Kp(fd, 800);
-   //sleep(2);
-   M.probe_MA(fd, 9000);
-   sleep(2);
-   M.probe_MA(fd, 0);
-   sleep(2);
-   M.probe_TP(fd);
-   M.probe_off(fd);
+   M.probe_MR(fd, 10000);
+   
    
 }
 

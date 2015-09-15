@@ -239,7 +239,7 @@ void Mstage::stage_moay(int Fd, float x)
     cerr << "Command Executed" << endl;	 
 }
 
-void Mstage::probe_connect(int Fd)
+void Mstage::probe_connect(int Fd, int x)
 {
     char buff[69];
     int res = write(Fd, M_CMD_ADDR, strlen(M_CMD_ADDR));
@@ -289,10 +289,10 @@ void Mstage::probe_ST(int Fd)
     cerr << "Motor stopped" << endl;
 }
 
-void Mstage::probe_Ki(int Fd, int Ki)
+void Mstage::probe_Ki(int Fd, float Ki)
 {
     char cmd_Ki[13];
-    sprintf(cmd_Ki, "DI%d\n", Ki);
+    sprintf(cmd_Ki, "DI%F\n", Ki);
     int res = write(Fd, cmd_Ki, strlen(cmd_Ki));
     if(res < 0)
     {
@@ -302,10 +302,10 @@ void Mstage::probe_Ki(int Fd, int Ki)
     cerr << "Ki gain is " << Ki << endl;
 }
 
-void Mstage::probe_Kd(int Fd, int Kd)
+void Mstage::probe_Kd(int Fd, float Kd)
 {
     char cmd_Kd[13];
-    sprintf(cmd_Kd, "DD%d\n", Kd);
+    sprintf(cmd_Kd, "DD%F\n", Kd);
     int res = write(Fd, cmd_Kd, strlen(cmd_Kd));
     if(res < 0)
     {
@@ -315,10 +315,10 @@ void Mstage::probe_Kd(int Fd, int Kd)
     cerr << "Kd gain is " << Kd << endl;
 }
 
-void Mstage::probe_Kp(int Fd, int Kp)
+void Mstage::probe_Kp(int Fd, float Kp)
 {
     char cmd_Kp[13];
-    sprintf(cmd_Kp, "DP%d\n", Kp);
+    sprintf(cmd_Kp, "DP%F\n", Kp);
     int res = write(Fd, cmd_Kp, strlen(cmd_Kp));
     if(res < 0)
     {
